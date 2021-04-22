@@ -1,3 +1,7 @@
+/*
+anusO1#6969 and Hyperz#0001 worked on this bot
+*/
+
 const Discord = require('discord.js');
 const client = new Discord.Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION']  
