@@ -4,7 +4,7 @@ anusO1#6969 made this terrible bot
 
 const Discord = require('discord.js');
 const client = new Discord.Client({partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
-const TOKEN = "your-bot-token";
+const TOKEN = "bot-token-here";
 const PREFIX = "!anus ";
 
 var messages = 0;
@@ -29,9 +29,9 @@ client.on('message', message => {
     console.log("pinged everyone");
   } else if (message.content.startsWith(`${PREFIX}lol`)) {
      for (var i = 0; i < 5; i++) {
-       message.channel.send("PENIS");
+       message.channel.send("lol");
      }
-    console.log("PENIS");
+    console.log("LOL");
   } else if (message.content.startsWith(`${PREFIX}messages`)) {
     message.channel.send(messages " sent since the bot was put online");
   } else if (message.content === '!ping') {
