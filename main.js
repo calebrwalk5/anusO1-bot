@@ -1,5 +1,5 @@
 /*
-anusO1#6969 and Hyperz#0001 worked on this bot
+anusO1#6969 made this terrible bot
 */
 
 const Discord = require('discord.js');
