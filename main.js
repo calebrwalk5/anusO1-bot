@@ -35,20 +35,33 @@ client.on('message', message => {
   } else if (message.content.startsWith(`${PREFIX}messages`)) {
     message.channel.send(messages " sent since the bot was put online");
   } else if (message.content === '!ping') {
-    message.channel.send('pong');
+    message.channel.send('pong').then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
     console.log('pong');
   } else if (message.content === '!anus ping') {
-    message.channel.send('pong');
+    message.channel.send('pong').then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
     console.log('pong');
   } else if (message.content.includes('deez')) {
-    message.channel.send('deez nuts lol');
+    message.channel.send('deez nuts lol').then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
     console.log("deez nuts lol");
   } else if (message.content.includes('anusO1')) {
-    message.channel.send('anusO1 is a cool man');
+    message.channel.send('anusO1 is a cool man').then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
     console.log('i said you are cool');
   } else if (message.content.includes("british")) {
-    message.channel.send("OI MAYTE I AM BRI'ISH AND I HAF MAFS IN ME SKEWL");
+    message.channel.send("OI MAYTE I AM BRI'ISH AND I HAF MAFS IN ME SKEWL").then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
     console.log("british people roasted");
+  } else if (message.content.includes("dick")) {
+    message.channel.send("why are you talking about dick????").then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
+    console.log(`bruh ${message.author.tag} likes dick lol`);
+  } else if (message.content.includes("csgo")) {
+    message.channel.send("you're literally trash at that game bruh!").then(msg => msg.delete({ timeout: 12000 })).catch(e => {})
+    message.delete().catch(e => {})
+    console.log(`bruh ${message.author.tag} likes dick lol`);
   } else {
     console.log(messages);
   }
