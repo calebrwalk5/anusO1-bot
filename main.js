@@ -32,6 +32,8 @@ client.on('message', message => {
        message.channel.send("PENIS");
      }
     console.log("PENIS");
+  } else if (message.content.startsWith(`${PREFIX}messages`)) {
+    message.channel.send(messages " sent since the bot was put online");
   } else if (message.content === '!ping') {
     message.channel.send('pong');
     console.log('pong');
