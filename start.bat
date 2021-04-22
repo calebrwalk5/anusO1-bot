@@ -1,3 +1,3 @@
 color 1f
 echo Starting bot...
-npm main.js
+node main.js
