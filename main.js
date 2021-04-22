@@ -1,5 +1,7 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
+const Discord = require('discord.js');
+const client = new Discord.Client({
+  partials: ['MESSAGE', 'CHANNEL', 'REACTION']  
+});
 
 const TOKEN = "your-bot-token"
 const PREFIX = "!anus"
