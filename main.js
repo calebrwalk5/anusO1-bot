@@ -42,7 +42,7 @@ client.on('message', message => {
     message.channel.send('deez nuts lol');
     console.log("deez nuts lol");
   } else {
-    console.log(messages" messages sent since the bot was online");
+    console.log(messages);
   }
 });
 
