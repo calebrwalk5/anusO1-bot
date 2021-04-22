@@ -29,6 +29,8 @@ client.on('message', message => {
     message.channel.send('Pong');
   } else if (message.content === '!anus ping') {
     message.channel.send('Pong');
+  } else if (message.content.includes('deez')) {
+    message.channel.send('deez nuts lol');
   } else {
     console.log("people keep talking");
   }
