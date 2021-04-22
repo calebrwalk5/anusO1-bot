@@ -13,7 +13,7 @@ client.on('ready', ready => {
 });
 
 client.on('guildMemberAdd', newuser => {
-  console.log("new user");
+  console.log("new user, wake up!");
 });
 
 client.on('message', message => {
