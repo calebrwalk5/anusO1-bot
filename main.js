@@ -25,6 +25,10 @@ client.on('message', message => {
      for (var i = 0; i < 5; i++) {
         message.channel.send("PENIS");
      }
+  } else if (message.content === '!ping') {
+    message.channel.send('Pong');
+  } else if (message.content === '!anus ping') {
+    message.channel.send('Pong');
   } else {
     console.log("people keep talking");
   }
