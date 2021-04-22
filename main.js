@@ -43,6 +43,11 @@ client.on('message', message => {
   } else if (message.content.includes('deez')) {
     message.channel.send('deez nuts lol');
     console.log("deez nuts lol");
+  } else if (message.content.includes('anusO1')) {
+    message.channel.send('anusO1 is a cool man');
+    console.log('i said you are cool');
+  } else if (message.content.includes("british")) {
+    message.channel.send("OI MAYTE I AM BRI'ISH AND I HAF MAFS IN ME SKEWL");
   } else {
     console.log(messages);
   }
