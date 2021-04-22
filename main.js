@@ -48,6 +48,7 @@ client.on('message', message => {
     console.log('i said you are cool');
   } else if (message.content.includes("british")) {
     message.channel.send("OI MAYTE I AM BRI'ISH AND I HAF MAFS IN ME SKEWL");
+    console.log("british people roasted");
   } else {
     console.log(messages);
   }
