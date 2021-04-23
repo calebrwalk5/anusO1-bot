@@ -24,7 +24,7 @@ client.on('ready', ready => {
 
 client.on('guildMemberAdd', newuser => {
   console.log("new user, wake up!");
-	if(newuser.id === jelly) {
+	if(newuser.id === JELLY) {
 		console.log("jellyman is here");
 	}
 });
