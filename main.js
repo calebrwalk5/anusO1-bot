@@ -82,6 +82,21 @@ client.on('message', message => {
   } else if (message.content.startsWith(`${PREFIX}`)) {
 	  message.channel.send("Invalid command. I'm a shitposter, not a mind reader");
 	  console.log("Invalid command");
+  } else if (message.content.includes("gun")) { 
+	  message.channel.send("you got a GUN??? get off the social media and see who can really trap");
+	  console.log("UK drill joke");
+  } else if (message.content.includes("drill")) {
+	  message.channel.send("you drilin' bruv?");
+	  console.log("drill");
+  } else if (message.content.includes("blood")) {
+	  message.channel.send("FUCK BLOODS");
+	  console.log("gang war");
+  } else if (message.content.includes("crip")) {
+	  message.channel.send("fuck CRIPS, we kill CRIPS");
+	  console.log("gang war");
+  } else if (message.content.includes("gang")) {
+	  message.channel.send("my GANG can fight your GANG, west side for life");
+	  console.log("gang war");
 } else {
     console.log(`message number ${messages} in ${guild.name}`);
 }
