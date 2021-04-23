@@ -23,6 +23,7 @@ client.on('guildMemberAdd', newuser => {
 
 client.on('message', message => {
   messages++;
+  let {guild} = message;
   if (message.content.startsWith(`${PREFIX}help`)) {
     message.channel.send(COMMANDS.join(", "));
     console.log("i do nothing lol");
@@ -59,7 +60,7 @@ client.on('message', message => {
 	message.channel.send(randomOutput);
 	console.log("random");
   } else {
-    console.log(messages);
+    console.log(`message number ${messages} in ${guild.name}`);
   }
 });
 
