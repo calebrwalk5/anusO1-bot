@@ -1,5 +1,5 @@
 # anusO1-bot
-anusO1 Discord bot<p>
+anusO1 Discord bot. Memes, roasts, random memes, random websites, and more! Shitpost in a bot<p>
   <h1>Commands</h1><br>
   `!anus random`: random link or image <br>
   `!anus help`: help menu <br>
