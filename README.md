@@ -6,3 +6,4 @@ anusO1 Discord bot<p>
   `!anus ping`: ping @everyone<br>
   `!anus lol`: says "lol" a few times<br>
   `!anus messages`: messages sent during uptime<br>
+`!anus meme`: sends a random meme<br>
