@@ -10,6 +10,8 @@ const COMMANDS = ["`!anus in front of commands`", "`help`", "`ping`", "`lol`", "
 const random = ["https://www.urbandictionary.com/", "https://puginarug.com/", "https://longdogechallenge.com/", "https://hooooooooo.com/", "https://makeawebsitehub.com/wp-content/uploads/2017/08/ouaismaisbon-1024x481.jpg", "http://162.191.232.173:81/live/index.html?Language=0", "http://111111111111111111111111111111111111111111111111111111111111.com/", "http://endless.horse/", "https://thatsthefinger.com/", "http://beesbeesbees.com/", "https://inktank.fi/wp-content/uploads/2014/05/weirdwebsites.jpg", "https://www.recipetineats.com/wp-content/uploads/2014/05/Homemade-Heinz-Baked-Beans_0-SQ.jpg", "https://boards.4chan.org/b/catalog", "https://i.redd.it/ldxne6s0coi41.jpg", "https://blueprint-api-production.s3.amazonaws.com/uploads/story/thumbnail/95319/90832f52-855a-41b7-830d-f9297b64d213.jpg", "https://miro.medium.com/max/3840/1*cbiq9DqLP_UEVqIOBb6MqQ.jpeg", "https://assets.vsco.co/assets/images/vsco-share-image.png", "https://media.discordapp.net/attachments/813781764592893963/813815048471445534/image0.jpg"];
 
 var messages = 0;
+var coinflip = 0;
+var coinflipout = "heads";
 
 client.on('ready', ready => {
   console.log(`${client.user.username} is now ready!`);
@@ -55,6 +57,9 @@ client.on('message', message => {
 	console.log("scottish people roasted");
   } else if (message.content.startsWith(`${PREFIX}messages`)) {
  	message.channel.send(messages);
+  } else if (message.content.startsWith(`${PREFIX}coinflip`)) {
+	  flipcoin();
+	  message.channel.send(coinflipout);
   } else if (message.content.startsWith(`${PREFIX}random`)) {
 	var randomOutput = random[Math.floor(Math.random() * random.length)];
 	message.channel.send(randomOutput);
@@ -63,5 +68,16 @@ client.on('message', message => {
     console.log(`message number ${messages} in ${guild.name}`);
   }
 });
+
+function flipcoin() {
+	coinflip = Math.random() * (100 - 0);
+	if (coinflip < 50) {
+		console.log("heads");
+		coinflipout = "heads";
+	} else {
+		console.log("tails");
+		coinflipout = "tails";
+	}
+}
 
 client.login(TOKEN);
