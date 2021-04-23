@@ -19,7 +19,7 @@ var randomMeme = 0;
 client.on('ready', ready => {
   console.log(`${client.user.username} is now ready!`);
   console.log('Bot built by anusO1#6969');
-  client.user.setPresence({ activity: { name: "anusO1 bot", type: "LISTENING" }, status: "online" });
+  client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
 });
 
 client.on('guildMemberAdd', newuser => {
