@@ -32,7 +32,7 @@ client.on('guildMemberAdd', newuser => {
 client.on('message', message => {
   messages++;
   let {guild} = message;
-  if (!message.sender === JELLY) {
+  if (message.sender === JELLY) {
 	  message.channel.send("shut up, jelly"); // Tells Jelly to shut up
 	  console.log("jelly was silenced");
   } else if (message.content.startsWith(`${PREFIX}help`)) {
