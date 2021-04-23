@@ -9,5 +9,5 @@ anusO1 Discord bot. Memes, roasts, random memes, random websites, and more! Shit
   !anus meme: sends a random meme<br>
 <p>
   <h1>Instructions:</h1><br>
-  Put your bot token in `const TOKEN = "your-token-here";`<br>
-  Run `update.bat` then `start.bat`<br>
+  Put your bot token in const TOKEN = "your-token-here";<br>
+  Run update.bat then start.bat<br>
