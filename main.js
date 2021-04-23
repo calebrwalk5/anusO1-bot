@@ -69,6 +69,9 @@ client.on('message', message => {
   } else if (message.content.startsWith(`${PREFIX}meme`)) {
 	  meme();
 	  message.channel.send(randomMeme);
+  } else if (message.content.includes("pog") {
+	  message.channel.send(":O");
+	  console.log("poggers");
   } else {
     console.log(`message number ${messages} in ${guild.name}`);
   }
