@@ -11,7 +11,7 @@ const random = ["https://www.urbandictionary.com/", "https://puginarug.com/", "h
 
 var messages = 0;
 var coinflip = 0;
-var coinflipout = "heads";
+var coinflipout = " ";
 
 client.on('ready', ready => {
   console.log(`${client.user.username} is now ready!`);
