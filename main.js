@@ -72,9 +72,12 @@ client.on('message', message => {
   } else if (message.content.includes("pog") {
 	  message.channel.send(":O");
 	  console.log("poggers");
-  } else {
+  } else if (message.content.startsWith(`${PREFIX}`)) {
+	  message.channel.send("Invalid command. I'm a shitposter, not a mind reader");
+	  console.log("Invalid command");
+} else {
     console.log(`message number ${messages} in ${guild.name}`);
-  }
+}
 });
 
 function flipcoin() {
