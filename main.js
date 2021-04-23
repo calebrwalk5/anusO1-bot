@@ -6,6 +6,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client({partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
 const TOKEN = "token-here";
 const PREFIX = "!anus ";
+const COMMANDS = ["`!anus in front of commands`", "`help`", "`ping`", "`lol`", "`messages`", "`random`"];
+const random = ["https://puginarug.com/", "https://longdogechallenge.com/", "https://hooooooooo.com/", "https://makeawebsitehub.com/wp-content/uploads/2017/08/ouaismaisbon-1024x481.jpg", "http://111111111111111111111111111111111111111111111111111111111111.com/", "http://endless.horse/", "https://thatsthefinger.com/", "http://beesbeesbees.com/", "https://inktank.fi/wp-content/uploads/2014/05/weirdwebsites.jpg", "https://www.recipetineats.com/wp-content/uploads/2014/05/Homemade-Heinz-Baked-Beans_0-SQ.jpg", "https://boards.4chan.org/b/catalog", "https://i.redd.it/ldxne6s0coi41.jpg", "https://blueprint-api-production.s3.amazonaws.com/uploads/story/thumbnail/95319/90832f52-855a-41b7-830d-f9297b64d213.jpg"];
 
 var messages = 0;
 
@@ -22,7 +24,7 @@ client.on('guildMemberAdd', newuser => {
 client.on('message', message => {
   messages++;
   if (message.content.startsWith(`${PREFIX}help`)) {
-    message.channel.send("i do nothing lol");
+    message.channel.send(COMMANDS.join(", "));
     console.log("i do nothing lol");
   } else if (message.content.startsWith(`${PREFIX}ping`)) {
     message.channel.send("@everyone");
@@ -44,12 +46,18 @@ client.on('message', message => {
   } else if (message.content.includes('anusO1')) {
     message.channel.send('anus is a cool man');
     console.log('i said you are cool');
-  } else if (message.content.includes("british")) {
+  } else if (message.content.includes("ritish")) {
     message.channel.send("OI MAYTE I AM BRI'ISH AND I HAF MAFS IN ME SKEWL");
     console.log("british people roasted");
   } else if (message.content.includes("scot")) {
 	message.channel.send("OI MAYTE WE HAF BAGPIPES 'N MAFS IN ME SKEWL");
 	console.log("scottish people roasted");
+  } else if (message.content.startsWith(`${PREFIX}messages`)) {
+ 	message.channel.send(messages);
+  } else if (message.content.startsWith(`${PREFIX}random`)) {
+	var randomOutput = random[Math.floor(Math.random() * random.length)];
+	message.channel.send(randomOutput);
+	console.log("random");
   } else {
     console.log(messages);
   }
