@@ -17,9 +17,8 @@ var coinflipout = " ";
 var randomMeme = 0;
 
 client.on('ready', ready => {
-  console.log(`${client.user.username} is now ready!`);
   console.log('Bot built by anusO1#6969');
-  client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
+  ready();
 });
 
 client.on('guildMemberAdd', newuser => {
@@ -108,6 +107,11 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 	console.log(`${message.author}: "${message}" in ${guild.name}`);
 }
 });
+
+function ready() {
+	client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
+	console.log("ready");
+}
 
 function flipcoin() {
 	coinflip = Math.random() * (100 - 0);
