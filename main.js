@@ -1,5 +1,6 @@
 /*
 anusO1#6969 made this terrible bot
+Huge shoutout to Stack Overflow
 */
 
 // Declare variables and constants 
@@ -130,9 +131,11 @@ function ready() {
 		function cycle() {
 			setTimeout (function() {
 				client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" }); 
+				console.log("listening to !anus");
 				}, 5000)
-			client.user.setPresence({ activity: { name: "anusO1 bot", type: "LISTENING" }, status: "dnd" })
-			}
+			client.user.setPresence({ activity: { name: "anusO1 bot", type: "WATCHING" }, status: "dnd" })
+			console.log("listening to anusO1 bot");
+		}
 	}
 }
 
