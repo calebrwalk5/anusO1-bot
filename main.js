@@ -18,7 +18,6 @@ var messages = 0;
 var coinflip = 0;
 var coinflipout = " ";
 var randomMeme = 0;
-var server = message.guild.id;
 
 // Initialize the bot
 
