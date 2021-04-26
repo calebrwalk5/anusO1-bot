@@ -17,6 +17,7 @@ var messages = 0;
 var coinflip = 0;
 var coinflipout = " ";
 var randomMeme = 0;
+var server = message.guild.id;
 
 // Initialize the bot
 
@@ -40,24 +41,24 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
   messages++;
   let {guild} = message;
   if (message.content.startsWith(`${PREFIX}help`)) {
-    message.channel.send(COMMANDS.join(", "));
-    console.log("i do nothing lol");
+	  message.channel.send(COMMANDS.join(", "));
+	  console.log("help command given");
   } else if (message.author === JELLY) {
 	  console.log("jelly sent a message");
   } else if (message.content.startsWith(`${PREFIX}banjelly`)) {
 	  console.log("ban jelly command given");
 	  killjelly();
   } else if (message.content.startsWith(`${PREFIX}ping`)) {
-    message.channel.send("@everyone");
-    console.log("pinged everyone");
+    	message.channel.send("@everyone");
+    	console.log("pinged everyone");
   } else if (message.content.startsWith(`${PREFIX}lol`)) {
      for (var i = 0; i < 5; i++) {
        message.channel.send("lol");
      }
     console.log("LOL");
   } else if (message.content === '!ping') {
-    message.channel.send('pong');
-    console.log('pong');
+    	message.channel.send('pong');
+    	console.log('pong');
   } else if (message.content === '!anus ping') {
     message.channel.send('pong');
     console.log('pong');
