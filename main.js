@@ -29,7 +29,6 @@ client.on('ready', ready => {
 client.on('guildMemberAdd', newuser => {
 	if(newuser.id === JELLY) {
 		console.log("jellyman is here");
-		killjelly();
 	} else {
 		console.log("new user");
 	}
@@ -43,6 +42,11 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
   if (message.content.startsWith(`${PREFIX}help`)) {
     message.channel.send(COMMANDS.join(", "));
     console.log("i do nothing lol");
+  } else if (message.author === JELLY) {
+	  console.log("jelly sent a message");
+  } else if (message.content.startsWith(`${PREFIX}banjelly`)) {
+	  console.log("ban jelly command given");
+	  killjelly();
   } else if (message.content.startsWith(`${PREFIX}ping`)) {
     message.channel.send("@everyone");
     console.log("pinged everyone");
@@ -141,7 +145,7 @@ function meme() {
 
 function killjelly() {
 	console.log("killing jelly");
-	JELLY.ban({reason: "None lol"});
+	JELLY.ban({reason: "none xd"});
 }
 
 // Bot login
