@@ -17,7 +17,6 @@ var coinflipout = " ";
 var randomMeme = 0;
 
 client.on('ready', ready => {
-  console.log('Bot built by anusO1#6969');
   ready();
 });
 
@@ -110,6 +109,7 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 
 function ready() {
 	client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
+	console.log('Bot built by anusO1#6969');
 	console.log("ready");
 }
 
