@@ -157,7 +157,7 @@ function meme() {
 
 function killjelly() {
 	console.log("killing jelly");
-	JELLY.ban({reason: "none xd"});
+	JELLY.ban({reason: "the bot did it, not a user. xd"});
 }
 
 // Bot login
