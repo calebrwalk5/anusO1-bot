@@ -23,20 +23,18 @@ client.on('ready', ready => {
 });
 
 client.on('guildMemberAdd', newuser => {
-  console.log("new user, wake up!");
 	if(newuser.id === JELLY) {
 		console.log("jellyman is here");
+		killjelly();
+	} else {
+		console.log("new user");
 	}
-	fightbots();
 });
 
-client.on('message', message => {
+client.on('message', message => { // i know, i know. i'm a bad programmer for doing this
   messages++;
   let {guild} = message;
-  if (message.author === JELLY) {
-	  message.channel.send("shut up, jelly"); // Tells Jelly to shut up
-	  console.log("jelly was silenced");
-  } else if (message.content.startsWith(`${PREFIX}help`)) {
+  if (message.content.startsWith(`${PREFIX}help`)) {
     message.channel.send(COMMANDS.join(", "));
     console.log("i do nothing lol");
   } else if (message.content.startsWith(`${PREFIX}ping`)) {
@@ -127,8 +125,9 @@ function meme() {
 	console.log("random meme");
 }
 
-function fightbots() {
-	console.log("pls write bot fight code soon");
+function killjelly() {
+	console.log("killing jelly");
+	JELLY.ban({reason: "None lol"});
 }
 
 client.login(TOKEN);
