@@ -131,10 +131,10 @@ function ready() {
 		function cycle() {
 			setTimeout (function() {
 				client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" }); 
-				console.log("listening to !anus");
+				console.log("status change");
 				}, 5000)
-			client.user.setPresence({ activity: { name: "anusO1 bot", type: "WATCHING" }, status: "dnd" })
-			console.log("listening to anusO1 bot");
+			client.user.setPresence({ activity: { name: "anusO1 bot", type: "WATCHING" }, status: "dnd" });
+			console.log("status change");
 		}
 	}
 }
