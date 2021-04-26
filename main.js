@@ -123,9 +123,17 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 // Functions
 
 function ready() {
-	client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
 	console.log('Bot built by anusO1#6969');
 	console.log("ready");
+	for (;;) {
+		cycle();
+		function cycle() {
+			setTimeout (function() {
+				client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" }); 
+				}, 5000)
+			client.user.setPresence({ activity: { name: "anusO1 bot", type: "LISTENING" }, status: "dnd" })
+			}
+	}
 }
 
 function flipcoin() {
