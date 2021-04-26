@@ -9,6 +9,7 @@ anusO1 Discord bot. Memes, roasts, random memes, random websites, and more! Shit
   !anus lol: says "lol" a few times<br>
   !anus messages: messages sent during uptime<br>
   !anus dababy: LESS GOO!!<br>
+  !anus banjelly: bans SpilledJellyBeans from the server<br>
 <p>
   <h1>Instructions</h1><br>
   Put your bot token in const TOKEN = "your-token-here";<br>
