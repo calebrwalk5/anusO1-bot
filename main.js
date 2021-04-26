@@ -2,6 +2,8 @@
 anusO1#6969 made this terrible bot
 */
 
+// Declare variables and constants 
+
 const Discord = require('discord.js');
 const client = new Discord.Client({partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
 const TOKEN = "your-token-here";
@@ -16,9 +18,13 @@ var coinflip = 0;
 var coinflipout = " ";
 var randomMeme = 0;
 
+// Initialize the bot
+
 client.on('ready', ready => {
   ready();
 });
+
+// New user
 
 client.on('guildMemberAdd', newuser => {
 	if(newuser.id === JELLY) {
@@ -28,6 +34,8 @@ client.on('guildMemberAdd', newuser => {
 		console.log("new user");
 	}
 });
+
+// Message/command interactions
 
 client.on('message', message => { // i know, i know. i'm a bad programmer for doing this
   messages++;
@@ -107,6 +115,8 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 }
 });
 
+// Functions
+
 function ready() {
 	client.user.setPresence({ activity: { name: "!anus", type: "LISTENING" }, status: "online" });
 	console.log('Bot built by anusO1#6969');
@@ -133,5 +143,7 @@ function killjelly() {
 	console.log("killing jelly");
 	JELLY.ban({reason: "None lol"});
 }
+
+// Bot login
 
 client.login(TOKEN);
