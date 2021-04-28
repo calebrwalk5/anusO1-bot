@@ -10,6 +10,9 @@ anusO1 Discord bot. Memes, roasts, random memes, random websites, and more! Shit
   !anus messages: messages sent during uptime<br>
   !anus dababy: LESS GOO!!<br>
   !anus banjellyman: bans SpilledJellyBeans from the server<br>
+  !anus play {song url}: plays a song in voice chat, and if one is already playing, it adds it to the queue<br>
+  !anus stop: stops playing the song<br>
+  !anus skip: skips to the next song in the queue<br>
 <p>
   <h1>Instructions</h1><br>
   Put your bot token in const TOKEN = "your-token-here";<br>
