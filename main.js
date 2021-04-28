@@ -54,7 +54,7 @@ client.on('guildMemberAdd', newuser => {
 
 // Message/command interactions
 
-client.on('message', message => { // i know, i know. i'm a bad programmer for doing this
+client.on('message', message => { // i know, i know. i'm a bad programmer for doing this, huge if else loops are bad
   const serverQueue = queue.get(message.guild.id);
   messages++;
   let {guild} = message;
@@ -134,12 +134,12 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 	  console.log("gang war");
   } else if (message.content.includes("among us")) {
 	  message.channel.send("amogus");
-  } else if (message.content.startsWith(`${PREFIX}play`)) {
+  } else if (message.content.startsWith(`${PREFIX}play`)) { // play song command
     	execute(message, serverQueue);
-  } else if (message.content.startsWith(`${PREFIX}skip`)) {
+  } else if (message.content.startsWith(`${PREFIX}skip`)) { // skip song command
     	skip(message, serverQueue);
 	return;
-  } else if (message.content.startsWith(`${PREFIX}stop`)) {
+  } else if (message.content.startsWith(`${PREFIX}stop`)) { // stop playing songs command
     	stop(message, serverQueue);
     	return;
 } else {
@@ -149,7 +149,7 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 
 // Functions
 
-function flipcoin() {
+function flipcoin() { // coin flip function
 	coinflip = Math.random() * (100 - 0);
 	if (coinflip < 50) {
 		console.log("heads");
@@ -160,16 +160,16 @@ function flipcoin() {
 	}
 }
 
-function meme() {
+function meme() { // random meme
 	randomMeme = memes[Math.floor(Math.random() * memes.length)];
 	console.log("random meme");
 }
 
-function killjelly() {
+function killjelly() { // kill jelly
 	console.log("killing jelly");
 }
 
-async function execute(message, serverQueue) {
+async function execute(message, serverQueue) { // play music functions 
   const args = message.content.split(" ");
   const voiceChannel = message.member.voice.channel;
   if (!voiceChannel)
@@ -213,7 +213,7 @@ async function execute(message, serverQueue) {
   }
 }
 
-function skip(message, serverQueue) {
+function skip(message, serverQueue) { // skip song function
   if (!message.member.voice.channel)
     return message.channel.send("join vc");
   if (!serverQueue)
@@ -221,7 +221,7 @@ function skip(message, serverQueue) {
   serverQueue.connection.dispatcher.end();
 }
 
-function stop(message, serverQueue) {
+function stop(message, serverQueue) { // stop music function 
   if (!message.member.voice.channel)
     return message.channel.send("join vc");
     
@@ -232,7 +232,7 @@ function stop(message, serverQueue) {
   serverQueue.connection.dispatcher.end();
 }
 
-function play(guild, song) {
+function play(guild, song) { // play music functions
   const serverQueue = queue.get(guild.id);
   if (!song) {
     serverQueue.voiceChannel.leave();
