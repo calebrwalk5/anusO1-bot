@@ -124,7 +124,7 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
   } else if (message.content.includes("among us")) {
 	  message.channel.send("amogus");
 } else {
-	console.log(`${message.author} ${guild.name}`);
+	console.log(`${message.author.username} ${guild.name}`);
 }
 });
 
