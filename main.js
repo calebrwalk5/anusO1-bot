@@ -7,6 +7,8 @@ Huge shoutout to Stack Overflow
 // Declare variables and constants 
 
 const Discord = require('discord.js');
+const ytdl = require("ytdl-core");
+const queue = new Map();
 const client = new Discord.Client({partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
 const TOKEN = "token-here";
 const PREFIX = "!anus ";
@@ -32,6 +34,14 @@ client.on('ready', ready => {
     }, 10000);
 });
 
+client.on("reconnecting", () => {
+	console.log("reconnecting...");
+});
+
+client.on("disconnect", () => {
+	console.log("disconnect");
+});
+
 // New user
 
 client.on('guildMemberAdd', newuser => {
@@ -45,6 +55,7 @@ client.on('guildMemberAdd', newuser => {
 // Message/command interactions
 
 client.on('message', message => { // i know, i know. i'm a bad programmer for doing this
+  const serverQueue = queue.get(message.guild.id);
   messages++;
   let {guild} = message;
   if (message.content.startsWith(`${PREFIX}help`)) {
@@ -123,6 +134,14 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 	  console.log("gang war");
   } else if (message.content.includes("among us")) {
 	  message.channel.send("amogus");
+  } else if (message.content.startsWith(`${PREFIX}play`)) {
+    	execute(message, serverQueue);
+  } else if (message.content.startsWith(`${PREFIX}skip`)) {
+    	skip(message, serverQueue);
+	return;
+  } else if (message.content.startsWith(`${PREFIX}stop`)) {
+    	stop(message, serverQueue);
+    	return;
 } else {
 	console.log(`${message.author.username} ${guild.name}`);
 }
@@ -148,6 +167,88 @@ function meme() {
 
 function killjelly() {
 	console.log("killing jelly");
+}
+
+async function execute(message, serverQueue) {
+  const args = message.content.split(" ");
+  const voiceChannel = message.member.voice.channel;
+  if (!voiceChannel)
+    return message.channel.send("join voice chat");
+  const permissions = voiceChannel.permissionsFor(message.client.user);
+  if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
+    return message.channel.send("missing permissions");
+  }
+
+  const songInfo = await ytdl.getInfo(args[1]);
+  const song = {
+        title: songInfo.videoDetails.title,
+        url: songInfo.videoDetails.video_url,
+   };
+
+  if (!serverQueue) {
+    const queueContruct = {
+      textChannel: message.channel,
+      voiceChannel: voiceChannel,
+      connection: null,
+      songs: [],
+      volume: 5,
+      playing: true
+    };
+
+    queue.set(message.guild.id, queueContruct);
+    queueContruct.songs.push(song);
+
+    try {
+      var connection = await voiceChannel.join();
+      queueContruct.connection = connection;
+      play(message.guild, queueContruct.songs[0]);
+    } catch (err) {
+      console.log(err);
+      queue.delete(message.guild.id);
+      return message.channel.send(err);
+    }
+  } else {
+    serverQueue.songs.push(song);
+    return message.channel.send(`${song.title} added to queue`);
+  }
+}
+
+function skip(message, serverQueue) {
+  if (!message.member.voice.channel)
+    return message.channel.send("join vc");
+  if (!serverQueue)
+    return message.channel.send("no songs to skip");
+  serverQueue.connection.dispatcher.end();
+}
+
+function stop(message, serverQueue) {
+  if (!message.member.voice.channel)
+    return message.channel.send("join vc");
+    
+  if (!serverQueue)
+    return message.channel.send("no songs to stop");
+    
+  serverQueue.songs = [];
+  serverQueue.connection.dispatcher.end();
+}
+
+function play(guild, song) {
+  const serverQueue = queue.get(guild.id);
+  if (!song) {
+    serverQueue.voiceChannel.leave();
+    queue.delete(guild.id);
+    return;
+  }
+
+  const dispatcher = serverQueue.connection
+    .play(ytdl(song.url))
+    .on("finish", () => {
+      serverQueue.songs.shift();
+      play(guild, serverQueue.songs[0]);
+    })
+    .on("error", error => console.error(error));
+  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+  serverQueue.textChannel.send(`playing: **${song.title}**`);
 }
 
 // Bot login
