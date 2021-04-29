@@ -59,13 +59,26 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
   messages++;
   let {guild} = message;
   if (message.content.startsWith(`${PREFIX}help`)) {
-	  message.channel.send(COMMANDS.join(", "));
+    const helpEmbed = new Discord.MessageEmbed()
+    .setColor(`#45f542`)
+    .setTitle(`Help Menu:`)
+    .addFields(
+      {name: `Information:`, value: `A Discord bot built to make your server better, please note, this bot will melt any snowflakes in your server... You have been warned...`},
+      {name: `Commands:`, value: `${COMMANDS.join("\n ")}`},
+      {name: `Links:`, value: `[Repository](https://github.com/calebrwalk5/anusO1-bot)`},
+    )
+    .setTimestamp()
+    .setFooter(`Created by anusO1#6969`)
+
+	  message.channel.send(helpEmbed);
 	  console.log("help command given");
   } else if (message.author === JELLY) {
 	  console.log("jelly sent a message");
   } else if (message.content.startsWith(`${PREFIX}banjellypls`)) {
 	  console.log("ban jelly command given");
-	  guild.members.ban(`${JELLY}`);
+	  guild.members.ban(`${JELLY}`, {
+      reason: `Being Cringe.`
+    });
 	  killjelly();
   } else if (message.content.startsWith(`${PREFIX}ping`)) {
     	message.channel.send("@everyone");
@@ -134,6 +147,8 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
 	  console.log("gang war");
   } else if (message.content.includes("among us")) {
 	  message.channel.send("amogus");
+  } else if (message.content.includes(`${PREFIX}hentai`)) {
+	  message.channel.send("woah woah woah. https://i.kym-cdn.com/photos/images/original/001/976/961/793.png");
   } else if (message.content.startsWith(`${PREFIX}play`)) { // play song command
     	execute(message, serverQueue);
   } else if (message.content.startsWith(`${PREFIX}skip`)) { // skip song command
