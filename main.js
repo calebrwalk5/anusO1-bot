@@ -1,4 +1,3 @@
-
 /*
 anusO1#6969 made this terrible bot
 Huge shoutout to Stack Overflow
