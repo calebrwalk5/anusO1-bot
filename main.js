@@ -82,8 +82,8 @@ client.on('message', message => { // i know, i know. i'm a bad programmer for do
     	message.channel.send('pong');
     	console.log('pong');
   } else if (message.content === '!anus ping') {
-    message.channel.send('pong');
-    console.log('pong');
+    message.channel.send('@everyone lol');
+    console.log('ping');
   } else if (message.content.includes('deez ')) {
     message.channel.send('deeznuts lol');
     console.log("deez nuts lol");
